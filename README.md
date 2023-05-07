@@ -1,4 +1,4 @@
-# simple mobility app
+# mobility server
 
 # seed db
 
