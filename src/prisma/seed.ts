@@ -1,39 +1,39 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient, type Prisma } from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 const exerciseData: Prisma.ExerciseCreateInput[] = [
   {
-    name: "Downward Dog",
-    description: "Downward Dog",
-    image: "",
+    name: 'Downward Dog',
+    description: 'Downward Dog',
+    image: ''
   },
   {
-    name: "Pigeon Pose",
-    description: "Pigeon Pose",
-    image: "",
-  },
-];
+    name: 'Pigeon Pose',
+    description: 'Pigeon Pose',
+    image: ''
+  }
+]
 
-async function main() {
-  console.log(`Start seeding ...`);
-  await prisma.exercise.deleteMany();
+async function main () {
+  console.log('Start seeding ...')
+  await prisma.exercise.deleteMany()
 
   for (const e of exerciseData) {
     const exercise = await prisma.exercise.create({
-      data: e,
-    });
-    console.log(`Created exercise with id: ${exercise.id}`);
+      data: e
+    })
+    console.log(`Created exercise with id: ${exercise.id}`)
   }
-  console.log(`Seeding finished.`);
+  console.log('Seeding finished.')
 }
 
 main()
   .then(async () => {
-    await prisma.$disconnect();
+    await prisma.$disconnect()
   })
   .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })

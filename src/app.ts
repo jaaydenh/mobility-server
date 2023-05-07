@@ -1,5 +1,10 @@
-import { Prisma, PrismaClient } from "@prisma/client";
-import express, { Application, Request, Response, NextFunction } from "express";
+import { type Prisma, PrismaClient } from "@prisma/client";
+import express, {
+  type Application,
+  type Request,
+  type Response,
+  type NextFunction,
+} from "express";
 
 const prisma = new PrismaClient();
 const app: Application = express();
@@ -19,7 +24,7 @@ class AppError extends Error {
   }
 }
 
-app.post(`/signup`, async (req, res) => {
+app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
   const result = await prisma.user.create({
