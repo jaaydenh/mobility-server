@@ -75,7 +75,7 @@ app.use((error: AppError, req: Request, res: Response) => {
   res.status(status).json({ message: error.message });
 });
 
-const port = 3000;
+const port = 4000;
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
