@@ -8,6 +8,7 @@ import express, {
 
 const prisma = new PrismaClient();
 const app: Application = express();
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
@@ -59,6 +60,18 @@ app.get("/exercises", async (req, res) => {
   res.json(posts);
 });
 
+app.get("/", async (req, res) => {
+  res.send(
+      `
+    <h1>Mobility API</h1>
+    <h2>Available Routes</h2>
+    <pre>
+      GET, POST /exercises
+    </pre>
+    `.trim(),
+  );
+});
+
 // Error handling Middleware function for logging the error message
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(`error ${error.message}`);
@@ -75,7 +88,6 @@ app.use((error: AppError, req: Request, res: Response) => {
   res.status(status).json({ message: error.message });
 });
 
-const port = 4000;
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
