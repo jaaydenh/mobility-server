@@ -15,7 +15,7 @@ const exerciseData: Prisma.ExerciseCreateInput[] = [
   }
 ]
 
-async function main () {
+async function main() {
   console.log('Start seeding ...')
   await prisma.exercise.deleteMany()
 

@@ -6,7 +6,8 @@
   "scripts": {
     "gen-env": "gen-env-types .env -o src/env.d.ts -e .",
     "prebuild": "eslint . --ext .ts",
-    "lint": "eslint . --ext .ts --fix",
+    "lint": "eslint . .*js --max-warnings 0 --report-unused-disable-directives",
+    "format": "prettier \"**/*\" --ignore-unknown",
     "build": "tsc",
     "watch": "tsc -w",
     "start": "node dist/src/app.js",

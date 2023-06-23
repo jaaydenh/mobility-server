@@ -62,7 +62,7 @@ app.get("/exercises", async (req, res) => {
 
 app.get("/", async (req, res) => {
   res.send(
-      `
+    `
     <h1>Mobility API</h1>
     <h2>Available Routes</h2>
     <pre>
