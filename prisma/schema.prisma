@@ -23,6 +23,8 @@ model Exercise {
   name        String
   description String
   image       String
+  videoId     String
+  length      Int
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
