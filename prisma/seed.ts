@@ -6,12 +6,16 @@ const exerciseData: Prisma.ExerciseCreateInput[] = [
   {
     name: 'Downward Dog',
     description: 'Downward Dog',
-    image: 'downward_dog'
+    image: 'downward_dog',
+    videoId: '',
+    length: 30
   },
   {
     name: 'Hamstring',
     description: 'Hamstring',
-    image: 'hamstring1'
+    image: 'hamstring1',
+    videoId: '',
+    length: 30
   }
 ]
 
